@@ -49,17 +49,11 @@ function filterPosts() {
     });
 }
 
-function showLoading() {
+async function showLoading() {
     loading.classList.add('show');
-
-    setTimeout(() => {
-        loading.classList.remove('show');
-
-        setTimeout(() => {
-            page++;
-            showPosts();
-        }, 300);
-    }, 1000);
+    page++;
+    await showPosts();
+    loading.classList.remove('show');
 }
 
 showPosts();
